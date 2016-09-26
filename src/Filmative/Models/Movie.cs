@@ -13,7 +13,6 @@ namespace Filmative.Models
         [Key]
         public int MovieId { get; set; }
         public string Title { get; set; }
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
+        
     }
 }

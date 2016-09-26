@@ -1,0 +1,17 @@
+﻿@model Filmative.Models.Movie
+
+@{ 
+    ViewData["Title"] = "Add a Movie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add a Movie</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model =>model.Title)
+    @Html.TextBoxFor(model => model.Title)
+    <input type="submit" value="Add Title" />
+}
+
+<p>@Html.ActionLink("Movie List", "Index")</p>

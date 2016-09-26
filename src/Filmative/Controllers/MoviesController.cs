@@ -20,5 +20,18 @@ namespace Filmative.Controllers
             var thisMovie = db.Movies.FirstOrDefault(movies => movies.MovieId == id);
             return View(thisMovie);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Movie movie)
+        {
+            db.Movies.Add(movie);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
