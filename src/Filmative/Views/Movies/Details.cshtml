@@ -1,0 +1,12 @@
+﻿@model Filmative.Models.Movie
+
+@{ 
+    ViewData["Title"] = "Movie Deets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Html.DisplayFor(model => model.Title)</h1>
+<hr />
+<h2>Further Api Information will display here</h2>
+<hr />
+<p>@Html.ActionLink("Movie List", "Index")</p>

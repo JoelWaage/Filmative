@@ -5,12 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Movie List</h2>
-<h4>@Html.DisplayNameFor(model => model.Title)</h4>
+<h2>Movies: </h2>
 <ul>
     @foreach(var movie in Model)
     {
-        <li>@Html.DisplayFor(modelMovie => movie.Title)</li>
-
+        <li>@Html.DisplayFor(modelMovie => movie.Title) | @Html.ActionLink("Details", "Details", new { id = movie.MovieId })</li>
     }
 </ul>

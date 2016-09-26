@@ -14,5 +14,11 @@ namespace Filmative.Controllers
         {
            return View(db.Movies.ToList());
         }
+
+        public IActionResult Details(int id)
+        {
+            var thisMovie = db.Movies.FirstOrDefault(movies => movies.MovieId == id);
+            return View(thisMovie);
+        }
     }
 }
