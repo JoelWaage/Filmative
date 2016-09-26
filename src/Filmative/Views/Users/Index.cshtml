@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Filmative.Models.User>
+
+@{ 
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>This page will probably shift to only display the specific user's information after they sign-in</h3>
+
+<ul>
+    @foreach(var user in Model)
+    {
+        <li>@Html.DisplayFor(modelUser => user.Name)</li>
+    }
+</ul>

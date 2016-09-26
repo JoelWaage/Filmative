@@ -12,7 +12,6 @@ namespace Filmative.Models
     {
         [Key]
         public int MovieId { get; set; }
-        public string Title { get; set; }
-        
+        public string Title { get; set; } 
     }
 }
