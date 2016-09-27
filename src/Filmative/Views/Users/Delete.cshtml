@@ -1,0 +1,15 @@
+﻿@model Filmative.Models.User
+
+@{ 
+    ViewData["Title"] = "Delete Profile?";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Html.DisplayFor(model => model.Name) Are you SURE you want to delete your ENTIRE profile?!?!?!?!?!</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    <button class="btn btn-default" type="submit" value="Delete">Delete Profile?</button>
+}
+<hr />
+<button class="btn btn-default">@Html.ActionLink("Home", "Index", "Home")</button>

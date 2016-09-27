@@ -4,5 +4,13 @@
 }
 
 <h1>Welcome to Filmative!</h1>
+<hr />
 
-<p>@Html.ActionLink("Create New Profile", "Create", "Users")</p>
+<div class="rows">
+    <div class="col-md-2">
+        <button class="btn btn-default">@Html.ActionLink("Create New Profile", "Create", "Users")</button>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-default">@Html.ActionLink("Browse Movies", "Index", "Movies")</button>
+    </div>
+</div>

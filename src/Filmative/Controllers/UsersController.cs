@@ -33,5 +33,20 @@ namespace Filmative.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Delete(int id)
+        {
+            var thisUser = db.Users.FirstOrDefault(users => users.UserId == id);
+            return View(thisUser);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisUser = db.Users.FirstOrDefault(users => users.UserId == id);
+            db.Users.Remove(thisUser);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
