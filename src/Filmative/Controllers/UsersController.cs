@@ -20,5 +20,18 @@ namespace Filmative.Controllers
             var thisUser = db.Users.FirstOrDefault(users => users.UserId == id);
             return View(thisUser);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(User user)
+        {
+            db.Users.Add(user);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

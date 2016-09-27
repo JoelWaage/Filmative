@@ -1,0 +1,17 @@
+﻿@model Filmative.Models.User
+
+@{ 
+    ViewData["Title"] = "Create Filmative Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New User:</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+    <input type="submit" value="Generate Profile" />
+}
+
+<p>@Html.ActionLink("Home", "Index", "Home")<p>
