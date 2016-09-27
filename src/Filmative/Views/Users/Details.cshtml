@@ -1,0 +1,11 @@
+﻿@model Filmative.Models.User
+@{ 
+    ViewData["Title"] = "User Deets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Html.DisplayFor(model => model.Name) </h2>
+<hr />
+<h3>Not sure what I'm going to do with this page.  Probably ability to edit user info, or edit reviews.  We'll see</h3>
+<hr />
+<p>@Html.ActionLink("User List", "Index")</p>
