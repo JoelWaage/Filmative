@@ -31,7 +31,8 @@ namespace Filmative.Controllers
         {
             db.Users.Add(user);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            var thisUser = user.UserId.ToString();
+            return RedirectToAction(thisUser, "Users/Details");
         }
 
         public IActionResult Delete(int id)
