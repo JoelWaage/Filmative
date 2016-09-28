@@ -12,7 +12,7 @@ namespace Filmative.Controllers
         private FilmativeContext db = new FilmativeContext();
         public IActionResult Index()
         {
-            return View(db.Movies.ToList());
+            return View(db.Scores.ToList());
         }
     }
 }

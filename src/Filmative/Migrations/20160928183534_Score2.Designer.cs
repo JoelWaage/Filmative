@@ -8,9 +8,10 @@ using Filmative.Models;
 namespace Filmative.Migrations
 {
     [DbContext(typeof(FilmativeContext))]
-    partial class FilmativeContextModelSnapshot : ModelSnapshot
+    [Migration("20160928183534_Score2")]
+    partial class Score2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
