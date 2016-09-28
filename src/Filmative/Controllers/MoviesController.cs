@@ -31,7 +31,8 @@ namespace Filmative.Controllers
         {
             db.Movies.Add(movie);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            var thisMovie = movie.MovieId.ToString();
+            return RedirectToAction(thisMovie, "Movies/Details");
         }
     }
 }
