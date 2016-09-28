@@ -28,6 +28,24 @@ namespace Filmative.Migrations
                     b.ToTable("Movies");
                 });
 
+            modelBuilder.Entity("Filmative.Models.Score", b =>
+                {
+                    b.Property<int>("ScoreId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("MovieId");
+
+                    b.Property<int>("Rating");
+
+                    b.Property<string>("Review");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("ScoreId");
+
+                    b.ToTable("Scores");
+                });
+
             modelBuilder.Entity("Filmative.Models.User", b =>
                 {
                     b.Property<int>("UserId")

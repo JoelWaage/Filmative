@@ -8,8 +8,8 @@ using Filmative.Models;
 namespace Filmative.Migrations
 {
     [DbContext(typeof(FilmativeContext))]
-    [Migration("20160927214226_reviewTime")]
-    partial class reviewTime
+    [Migration("20160928170947_Score")]
+    partial class Score
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,6 +27,24 @@ namespace Filmative.Migrations
                     b.HasKey("MovieId");
 
                     b.ToTable("Movies");
+                });
+
+            modelBuilder.Entity("Filmative.Models.Score", b =>
+                {
+                    b.Property<int>("ScoreId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("MovieId");
+
+                    b.Property<int>("Rating");
+
+                    b.Property<string>("Review");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("ScoreId");
+
+                    b.ToTable("Scores");
                 });
 
             modelBuilder.Entity("Filmative.Models.User", b =>

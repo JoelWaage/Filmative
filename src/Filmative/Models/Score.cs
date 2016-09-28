@@ -11,7 +11,7 @@ namespace Filmative.Models
     public class Score
     {
         [Key]
-        public int ReviewId { get; set; }
+        public int ScoreId { get; set; }
         public int MovieId { get; set; }
         public int UserId { get; set; }
         public int Rating { get; set; }
