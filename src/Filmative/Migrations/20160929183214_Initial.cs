@@ -36,7 +36,7 @@ namespace Filmative.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Score",
+                name: "Scores",
                 columns: table => new
                 {
                     ScoreId = table.Column<int>(nullable: false)
@@ -48,15 +48,15 @@ namespace Filmative.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Score", x => x.ScoreId);
+                    table.PrimaryKey("PK_Scores", x => x.ScoreId);
                     table.ForeignKey(
-                        name: "FK_Score_Movies_MovieId",
+                        name: "FK_Scores_Movies_MovieId",
                         column: x => x.MovieId,
                         principalTable: "Movies",
                         principalColumn: "MovieId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Score_Users_UserId",
+                        name: "FK_Scores_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "UserId",
@@ -64,20 +64,20 @@ namespace Filmative.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Score_MovieId",
-                table: "Score",
+                name: "IX_Scores_MovieId",
+                table: "Scores",
                 column: "MovieId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Score_UserId",
-                table: "Score",
+                name: "IX_Scores_UserId",
+                table: "Scores",
                 column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Score");
+                name: "Scores");
 
             migrationBuilder.DropTable(
                 name: "Movies");

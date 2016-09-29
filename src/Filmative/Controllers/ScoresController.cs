@@ -27,7 +27,7 @@ namespace Filmative.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Score score)
+        public ActionResult Create(Scores score)
         {
             db.Scores.Add(score);
             db.SaveChanges();

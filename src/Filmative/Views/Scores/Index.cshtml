@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Filmative.Models.Scores>
+
+@{ 
+    ViewData["Title"] = "Scores, Yo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Scores?</h2>
+
+<ul>
+    @foreach(var score in Model)
+    {
+        <li>@Html.DisplayFor(modelScore => score.Rating)</li>
+    }
+</ul>
+
+<p>@Html.ActionLink("Add a Score", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

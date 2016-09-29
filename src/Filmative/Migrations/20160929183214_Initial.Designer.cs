@@ -8,7 +8,7 @@ using Filmative.Models;
 namespace Filmative.Migrations
 {
     [DbContext(typeof(FilmativeContext))]
-    [Migration("20160929181014_Initial")]
+    [Migration("20160929183214_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,7 +30,7 @@ namespace Filmative.Migrations
                     b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("Filmative.Models.Score", b =>
+            modelBuilder.Entity("Filmative.Models.Scores", b =>
                 {
                     b.Property<int>("ScoreId")
                         .ValueGeneratedOnAdd();
@@ -49,7 +49,7 @@ namespace Filmative.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Score");
+                    b.ToTable("Scores");
                 });
 
             modelBuilder.Entity("Filmative.Models.User", b =>
@@ -65,7 +65,7 @@ namespace Filmative.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Filmative.Models.Score", b =>
+            modelBuilder.Entity("Filmative.Models.Scores", b =>
                 {
                     b.HasOne("Filmative.Models.Movie", "Movie")
                         .WithMany("Users")
