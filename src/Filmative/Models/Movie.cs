@@ -10,12 +10,15 @@ namespace Filmative.Models
 {
     public class Movie
     {
-        public Movie() { }
+        public Movie()
+        {
+            this.Users = new HashSet<User>();
+        }
         
         [Key]
         public int MovieId { get; set; }
         [Required]
         public string Title { get; set; } 
-        public virtual ICollection<Movie> Movies { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

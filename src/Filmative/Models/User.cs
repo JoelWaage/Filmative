@@ -14,7 +14,8 @@ namespace Filmative.Models
         [Key]
         public int UserId { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string UserName { get; set; }
+        public int StandardId { get; set; }
         public virtual ICollection<Movie> Movies { get; set; }
     }
 }
