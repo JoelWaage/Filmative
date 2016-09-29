@@ -6,15 +6,15 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Filmative.Models;
 
-
 namespace Filmative.Models
 {
-    public class Movie
-    {   
+    public class MovieUser
+    {
         [Key]
-        public int MovieId { get; set; }
-        [Required]
-        public string Title { get; set; } 
-        public virtual ICollection<MovieUser> Users { get; set; }
+        public int ScoreId { get; set; }
+        public virtual Movie Movie { get; set; }
+        public virtual User User { get; set; }
+        public int Rating { get; set; }
+        public string Review { get; set; }
     }
 }

@@ -8,8 +8,8 @@ using Filmative.Models;
 namespace Filmative.Migrations
 {
     [DbContext(typeof(FilmativeContext))]
-    [Migration("20160929003948_Join")]
-    partial class Join
+    [Migration("20160929173941_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,20 +22,34 @@ namespace Filmative.Migrations
                     b.Property<int>("MovieId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("MovieId1");
-
                     b.Property<string>("Title")
                         .IsRequired();
 
-                    b.Property<int?>("UserId");
-
                     b.HasKey("MovieId");
 
-                    b.HasIndex("MovieId1");
+                    b.ToTable("Movies");
+                });
+
+            modelBuilder.Entity("Filmative.Models.MovieUser", b =>
+                {
+                    b.Property<int>("ScoreId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("MovieId");
+
+                    b.Property<int>("Rating");
+
+                    b.Property<string>("Review");
+
+                    b.Property<int?>("UserId");
+
+                    b.HasKey("ScoreId");
+
+                    b.HasIndex("MovieId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Movies");
+                    b.ToTable("MovieUser");
                 });
 
             modelBuilder.Entity("Filmative.Models.User", b =>
@@ -43,7 +57,7 @@ namespace Filmative.Migrations
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name")
+                    b.Property<string>("UserName")
                         .IsRequired();
 
                     b.HasKey("UserId");
@@ -51,13 +65,13 @@ namespace Filmative.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Filmative.Models.Movie", b =>
+            modelBuilder.Entity("Filmative.Models.MovieUser", b =>
                 {
-                    b.HasOne("Filmative.Models.Movie")
-                        .WithMany("Movies")
-                        .HasForeignKey("MovieId1");
+                    b.HasOne("Filmative.Models.Movie", "Movie")
+                        .WithMany("Users")
+                        .HasForeignKey("MovieId");
 
-                    b.HasOne("Filmative.Models.User")
+                    b.HasOne("Filmative.Models.User", "User")
                         .WithMany("Movies")
                         .HasForeignKey("UserId");
                 });
