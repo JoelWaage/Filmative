@@ -7,11 +7,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Filmative.Models
 {
-    [Table("Users")]
     public class User
     {
+        public User() { }
+
         [Key]
         public int UserId { get; set; }
+        [Required]
         public string Name { get; set; }
+        public virtual ICollection<Movie> Movies { get; set; }
     }
 }

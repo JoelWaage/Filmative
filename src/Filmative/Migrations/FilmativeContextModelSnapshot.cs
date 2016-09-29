@@ -21,29 +21,20 @@ namespace Filmative.Migrations
                     b.Property<int>("MovieId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("ScoreId");
+                    b.Property<int?>("MovieId1");
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .IsRequired();
+
+                    b.Property<int?>("UserId");
 
                     b.HasKey("MovieId");
 
-                    b.HasIndex("ScoreId");
+                    b.HasIndex("MovieId1");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Movies");
-                });
-
-            modelBuilder.Entity("Filmative.Models.Score", b =>
-                {
-                    b.Property<int>("ScoreId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("Rating");
-
-                    b.Property<string>("Review");
-
-                    b.HasKey("ScoreId");
-
-                    b.ToTable("Scores");
                 });
 
             modelBuilder.Entity("Filmative.Models.User", b =>
@@ -51,29 +42,23 @@ namespace Filmative.Migrations
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name");
-
-                    b.Property<int?>("ScoreId");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("UserId");
-
-                    b.HasIndex("ScoreId");
 
                     b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Filmative.Models.Movie", b =>
                 {
-                    b.HasOne("Filmative.Models.Score")
+                    b.HasOne("Filmative.Models.Movie")
                         .WithMany("Movies")
-                        .HasForeignKey("ScoreId");
-                });
+                        .HasForeignKey("MovieId1");
 
-            modelBuilder.Entity("Filmative.Models.User", b =>
-                {
-                    b.HasOne("Filmative.Models.Score")
-                        .WithMany("Users")
-                        .HasForeignKey("ScoreId");
+                    b.HasOne("Filmative.Models.User")
+                        .WithMany("Movies")
+                        .HasForeignKey("UserId");
                 });
         }
     }

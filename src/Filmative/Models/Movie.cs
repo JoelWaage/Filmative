@@ -5,13 +5,17 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+
 namespace Filmative.Models
 {
-    [Table("Movies")]
     public class Movie
     {
+        public Movie() { }
+        
         [Key]
         public int MovieId { get; set; }
+        [Required]
         public string Title { get; set; } 
+        public virtual ICollection<Movie> Movies { get; set; }
     }
 }
