@@ -29,7 +29,7 @@ namespace Filmative.Migrations
                     b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("Filmative.Models.MovieUser", b =>
+            modelBuilder.Entity("Filmative.Models.Score", b =>
                 {
                     b.Property<int>("ScoreId")
                         .ValueGeneratedOnAdd();
@@ -48,7 +48,7 @@ namespace Filmative.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("MovieUser");
+                    b.ToTable("Score");
                 });
 
             modelBuilder.Entity("Filmative.Models.User", b =>
@@ -64,7 +64,7 @@ namespace Filmative.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Filmative.Models.MovieUser", b =>
+            modelBuilder.Entity("Filmative.Models.Score", b =>
                 {
                     b.HasOne("Filmative.Models.Movie", "Movie")
                         .WithMany("Users")

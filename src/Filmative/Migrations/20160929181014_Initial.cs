@@ -36,7 +36,7 @@ namespace Filmative.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MovieUser",
+                name: "Score",
                 columns: table => new
                 {
                     ScoreId = table.Column<int>(nullable: false)
@@ -48,15 +48,15 @@ namespace Filmative.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MovieUser", x => x.ScoreId);
+                    table.PrimaryKey("PK_Score", x => x.ScoreId);
                     table.ForeignKey(
-                        name: "FK_MovieUser_Movies_MovieId",
+                        name: "FK_Score_Movies_MovieId",
                         column: x => x.MovieId,
                         principalTable: "Movies",
                         principalColumn: "MovieId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_MovieUser_Users_UserId",
+                        name: "FK_Score_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "UserId",
@@ -64,20 +64,20 @@ namespace Filmative.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_MovieUser_MovieId",
-                table: "MovieUser",
+                name: "IX_Score_MovieId",
+                table: "Score",
                 column: "MovieId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MovieUser_UserId",
-                table: "MovieUser",
+                name: "IX_Score_UserId",
+                table: "Score",
                 column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "MovieUser");
+                name: "Score");
 
             migrationBuilder.DropTable(
                 name: "Movies");

@@ -15,6 +15,6 @@ namespace Filmative.Models
         public int MovieId { get; set; }
         [Required]
         public string Title { get; set; } 
-        public virtual ICollection<MovieUser> Users { get; set; }
+        public virtual ICollection<Score> Users { get; set; }
     }
 }
