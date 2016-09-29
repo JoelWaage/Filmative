@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Filmative.Models.Scores>
+﻿@model IEnumerable<Filmative.Models.Score>
 
 @{ 
     ViewData["Title"] = "Scores, Yo";
@@ -10,7 +10,8 @@
 <ul>
     @foreach(var score in Model)
     {
-        <li>@Html.DisplayFor(modelScore => score.Rating)</li>
+        <li>Test</li>
+        <li>@Html.DisplayFor(modelScore => score.Rating), @Html.DisplayFor(modelScore => score.Review)</li>
     }
 </ul>
 

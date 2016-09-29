@@ -24,10 +24,11 @@ namespace Filmative.Controllers
         public ActionResult Create()
         {
             ViewBag.MovieId = new SelectList(db.Movies, "MovieId", "Title");
+            ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName");
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Scores score)
+        public ActionResult Create(Score score)
         {
             db.Scores.Add(score);
             db.SaveChanges();

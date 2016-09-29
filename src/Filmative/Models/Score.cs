@@ -8,7 +8,7 @@ using Filmative.Models;
 
 namespace Filmative.Models
 {
-    public class Scores
+    public class Score
 
     {
         [Key]

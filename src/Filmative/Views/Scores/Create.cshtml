@@ -1,0 +1,27 @@
+﻿@model Filmative.Models.Score
+
+@{ 
+    ViewData["Title"] = "Score - Somethin'";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add a Score:</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Movie.Title)
+    @Html.DropDownList("MovieId")
+
+    @Html.LabelFor(model => model.User.UserName)
+    @Html.DropDownList("UserId")
+
+    @Html.LabelFor(model => model.Rating)
+    @Html.EditorFor(model => model.Rating)
+
+    @Html.LabelFor(model => model.Review)
+    @Html.EditorFor(model => model.Review)
+
+    <input type="submit" value="Create" class="btn btn-default" />
+}
+
+@Html.ActionLink("Back to Scores", "Index")
