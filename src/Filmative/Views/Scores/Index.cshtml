@@ -10,7 +10,7 @@
 <ul>
     @foreach(var score in Model)
     {
-        <li>Test</li>
+        <li>Test @Html.DisplayFor(modelScore => score.Movie.Title)</li>
         <li>@Html.DisplayFor(modelScore => score.Rating), @Html.DisplayFor(modelScore => score.Review)</li>
     }
 </ul>

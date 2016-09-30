@@ -14,7 +14,7 @@ namespace Filmative.Controllers
         private FilmativeContext db = new FilmativeContext();
         public IActionResult Index()
         {
-            return View(db.Scores.ToList());
+            return View(db.Scores.Include(score => score.Movie).ToList());
         }
         public IActionResult Details(int id)
         {
