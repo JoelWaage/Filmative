@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Filmative.Models;
+using Filmative.ViewModels;
 
 namespace Filmative.Controllers
 {
@@ -20,9 +21,20 @@ namespace Filmative.Controllers
             _signInManager = signInManager;
             _db = db;
         } 
-        public IActionResult Index()
+        
+        [HttpPost]
+        public async Task<IActionResult> Register (RegisterViewModel model)
         {
-            return View();
+            var user = new ApplicationUser { UserName = model.UserName };
+            IdentityResult result = await _userManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }
