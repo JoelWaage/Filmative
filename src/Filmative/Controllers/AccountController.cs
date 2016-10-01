@@ -20,7 +20,13 @@ namespace Filmative.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
             _db = db;
-        } 
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+            
         
         [HttpPost]
         public async Task<IActionResult> Register (RegisterViewModel model)
@@ -54,6 +60,13 @@ namespace Filmative.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> LogOff()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index");
         }
     }
 }
