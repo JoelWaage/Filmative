@@ -1,5 +1,5 @@
 ﻿@{ 
-    ViewData["Title"] = "Create and Account";
+    ViewData["Title"] = "Create an Account";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -7,12 +7,12 @@
 
 @model RegisterViewModel
 
-<h2>Create an Account</h2>
+<h2>Register a new user</h2>
 <hr />
 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
-    @Html.LabelFor(m => m.UserName)
-    @Html.TextBoxFor(m => m.UserName)
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email)
 
     @Html.LabelFor(m => m.Password)
     @Html.PasswordFor(m => m.Password)
