@@ -45,7 +45,7 @@ namespace Filmative
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Accoutn}/{action=Index}/{id?}");
+                    template: "{controller=Account}/{action=Index}/{id?}");
             });
             
             loggerFactory.AddConsole();
