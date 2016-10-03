@@ -35,7 +35,7 @@ namespace Filmative.Controllers
         [HttpPost]
         public async Task<IActionResult> Register (RegisterViewModel model)
         {
-            var user = new ApplicationUser { UserName = model.Email };
+            var user = new ApplicationUser { UserName = model.UserName };
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {

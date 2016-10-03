@@ -15,11 +15,14 @@ namespace Filmative.ViewModels
         public string Email { get; set; }
 
         [Required]
+        [StringLength(100, ErrorMessage = "Username must be at least 4 characters in length", MinimumLength = 4)]
+        public string UserName { get; set; }
+
+        [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
