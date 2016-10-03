@@ -18,8 +18,12 @@ namespace Filmative.Models
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
+
         public DbSet<Movie> Movies { get; set; }
-        public DbSet<User> Users { get; set; }
         public DbSet<Score> Scores { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
