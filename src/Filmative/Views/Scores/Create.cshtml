@@ -9,11 +9,8 @@
 <hr />
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Movie.Title)
-    @Html.DropDownList("MovieId")
-
-    @Html.LabelFor(model => model.User.UserName)
-    @Html.DropDownList("UserId")
+    @Html.LabelFor(model => model.Movie)
+    @Html.EditorFor(model => model.Movie)
 
     @Html.LabelFor(model => model.Rating)
     @Html.EditorFor(model => model.Rating)

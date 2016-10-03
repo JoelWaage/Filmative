@@ -8,15 +8,13 @@ using Filmative.Models;
 
 namespace Filmative.Models
 {
-    [Table("Scores")]
     public class Score
-
     {
         [Key]
         public int ScoreId { get; set; }
-        public virtual Movie Movie { get; set; }
-        public virtual ApplicationUser User { get; set; }
+        public string Movie { get; set; }
         public int Rating { get; set; }
         public string Review { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }
