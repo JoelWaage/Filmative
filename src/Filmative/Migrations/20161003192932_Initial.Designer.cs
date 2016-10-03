@@ -8,7 +8,7 @@ using Filmative.Models;
 namespace Filmative.Migrations
 {
     [DbContext(typeof(FilmativeContext))]
-    [Migration("20161003185348_Initial")]
+    [Migration("20161003192932_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
