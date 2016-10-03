@@ -9,7 +9,16 @@
 
 <h2>Scores for @User.Identity.Name</h2>
 
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var score in Model)
+        {
+            <li>@Html.DisplayFor(modelScore => score.Movie): @Html.DisplayFor(modelScore => score.Rating)</li>
+
+        }
+    </ul>
+}
 
 
-
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </p>
