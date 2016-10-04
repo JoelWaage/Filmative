@@ -5,17 +5,31 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Filmative.Controllers;
 using Filmative.Models;
+using Filmative.Models.Repositories;
 using Xunit;
-
+using Moq;
 
 namespace Filmative.Tests.ControllerTests
 {
     public class MoviesControllerTest
     {
-        [Fact]
-        public void Get_ViewResult_Index_Test()
+        Mock<IMovieRepository> mock = new Mock<IMovieRepository>();
+
+        private void DbSetup()
         {
-            MoviesController controller = new MoviesController();
+            mock.Setup(m => m.Movies).Returns(new Movie[]
+            {
+                new Movie {MovieId = 1, Title = "Tron" },
+                new Movie {MovieId = 2, Title = "Tron: Legacy" },
+                new Movie {MovieId = 3, Title = "Mad Max: Beyond Thunderdome" }
+            }.AsQueryable());
+        }
+
+        [Fact]
+        public void Mock_GetViewResult_Index_Test()
+        {
+            DbSetup();
+            MoviesController controller = new MoviesController(mock.Object);
 
             var result = controller.Index();
 
@@ -23,9 +37,10 @@ namespace Filmative.Tests.ControllerTests
         }
 
         [Fact]
-        public void Get_ModelListMovieIndex_Test()
+        public void Mock_IndexListOfMovies_Test()
         {
-            ViewResult indexView = new MoviesController().Index() as ViewResult;
+            DbSetup();
+            ViewResult indexView = new MoviesController(mock.Object).Index() as ViewResult;
 
             var result = indexView.ViewData.Model;
 
@@ -33,11 +48,13 @@ namespace Filmative.Tests.ControllerTests
         }
 
         [Fact]
-        public void Post_MethodAddsMovie_Test()
+        public void Mock_ConfirmEntry_Test()
         {
-            MoviesController controller = new MoviesController();
+            DbSetup();
+            MoviesController controller = new MoviesController(mock.Object);
             Movie testMovie = new Movie();
-            testMovie.Title = "test movie";
+            testMovie.Title = "Valley of the Dolls";
+            testMovie.MovieId = 1;
 
             controller.Create(testMovie);
             ViewResult indexView = new MoviesController().Index() as ViewResult;
