@@ -7,6 +7,7 @@ using Filmative.Controllers;
 using Filmative.Models;
 using Xunit;
 
+
 namespace Filmative.Tests.ControllerTests
 {
     public class MoviesControllerTest
@@ -22,7 +23,7 @@ namespace Filmative.Tests.ControllerTests
         }
 
         [Fact]
-        public void Get_ModelList_Index_Test()
+        public void Get_ModelListMovieIndex_Test()
         {
             ViewResult indexView = new MoviesController().Index() as ViewResult;
 
