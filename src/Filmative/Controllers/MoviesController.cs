@@ -46,32 +46,5 @@ namespace Filmative.Controllers
             movieRepo.Save(movie);
             return RedirectToAction("Index");
         }
-       
-
-        //private FilmativeContext db = new FilmativeContext();
-        //public IActionResult Index()
-        //{
-        //   return View(db.Movies.ToList());
-        //}
-
-        //public IActionResult Details(int id)
-        //{
-        //    var thisMovie = db.Movies.FirstOrDefault(movies => movies.MovieId == id);
-        //    return View(thisMovie);
-        //}
-
-        //public IActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public IActionResult Create(Movie movie)
-        //{
-        //    db.Movies.Add(movie);
-        //    db.SaveChanges();
-        //    var thisMovie = movie.MovieId.ToString();
-        //    return RedirectToAction(thisMovie, "Movies/Details");
-        //}
     }
 }
