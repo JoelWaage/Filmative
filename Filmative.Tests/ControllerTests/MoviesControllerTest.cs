@@ -24,9 +24,7 @@ namespace Filmative.Tests.ControllerTests
         [Fact]
         public void Get_ModelList_Index_Test()
         {
-            MoviesController controller = new MoviesController();
-            IActionResult actionResult = controller.Index();
-            ViewResult indexView = controller.Index() as ViewResult;
+            ViewResult indexView = new MoviesController().Index() as ViewResult;
 
             var result = indexView.ViewData.Model;
 
