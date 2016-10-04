@@ -20,5 +20,17 @@ namespace Filmative.Tests.ControllerTests
 
             Assert.IsType<ViewResult>(result);
         }
+
+        [Fact]
+        public void Get_ModelList_Index_Test()
+        {
+            MoviesController controller = new MoviesController();
+            IActionResult actionResult = controller.Index();
+            ViewResult indexView = controller.Index() as ViewResult;
+
+            var result = indexView.ViewData.Model;
+
+            Assert.IsType<List<Movie>>(result);
+        }
     }
 }
