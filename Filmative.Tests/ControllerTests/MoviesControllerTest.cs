@@ -30,5 +30,19 @@ namespace Filmative.Tests.ControllerTests
 
             Assert.IsType<List<Movie>>(result);
         }
+
+        [Fact]
+        public void Post_MethodAddsMovie_Test()
+        {
+            MoviesController controller = new MoviesController();
+            Movie testMovie = new Movie();
+            testMovie.Title = "test movie";
+
+            controller.Create(testMovie);
+            ViewResult indexView = new MoviesController().Index() as ViewResult;
+            var collection = indexView.ViewData.Model as IEnumerable<Movie>;
+
+            Assert.Contains<Movie>(testMovie, collection);
+        }
     }
 }
