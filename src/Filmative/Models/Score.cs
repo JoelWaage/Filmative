@@ -12,7 +12,7 @@ namespace Filmative.Models
     {
         [Key]
         public int ScoreId { get; set; }
-        public string Movie { get; set; }
+        public virtual Movie Movie { get; set; }
         public int Rating { get; set; }
         public string Review { get; set; }
         public virtual ApplicationUser User { get; set; }

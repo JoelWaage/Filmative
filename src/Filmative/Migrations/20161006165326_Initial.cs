@@ -76,28 +76,6 @@ namespace Filmative.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Scores",
-                columns: table => new
-                {
-                    ScoreId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Movie = table.Column<string>(nullable: true),
-                    Rating = table.Column<int>(nullable: false),
-                    Review = table.Column<string>(nullable: true),
-                    UserId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Scores", x => x.ScoreId);
-                    table.ForeignKey(
-                        name: "FK_Scores_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetUserClaims",
                 columns: table => new
                 {
@@ -136,6 +114,34 @@ namespace Filmative.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Scores",
+                columns: table => new
+                {
+                    ScoreId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    MovieId = table.Column<int>(nullable: true),
+                    Rating = table.Column<int>(nullable: false),
+                    Review = table.Column<string>(nullable: true),
+                    UserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Scores", x => x.ScoreId);
+                    table.ForeignKey(
+                        name: "FK_Scores_Movies_MovieId",
+                        column: x => x.MovieId,
+                        principalTable: "Movies",
+                        principalColumn: "MovieId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Scores_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -195,6 +201,11 @@ namespace Filmative.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Scores_MovieId",
+                table: "Scores",
+                column: "MovieId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Scores_UserId",
                 table: "Scores",
                 column: "UserId");
@@ -233,9 +244,6 @@ namespace Filmative.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Movies");
-
-            migrationBuilder.DropTable(
                 name: "Scores");
 
             migrationBuilder.DropTable(
@@ -252,6 +260,9 @@ namespace Filmative.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Movies");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
