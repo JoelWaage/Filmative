@@ -27,10 +27,11 @@ namespace Filmative.Controllers
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var currentUser = await _userManager.FindByIdAsync(userId);
-            return View(_db.Scores.Where(x => x.User.Id == currentUser.Id));
+            return View(_db.Scores.Where(x => x.User.Id == currentUser.Id).ToList());
         }
         public IActionResult Create()
         {
+            ViewBag.Movie = new SelectList(_db.Movies, "MovieId", "Title");
             return View();
         }
         [HttpPost]

@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.LabelFor(model => model.Movie)
-    @Html.EditorFor(model => model.Movie)
+    @Html.DropDownList("Movie")
 
     @Html.LabelFor(model => model.Rating)
     @Html.EditorFor(model => model.Rating)
