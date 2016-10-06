@@ -14,9 +14,9 @@ namespace Filmative.Controllers
         {
             return View();
         }
-        public IActionResult HelloAjax()
+        public IActionResult TestAjax()
         {
-            return Content("Hello from the controller!", "text/plain");
+            return Content("AJAX is connected", "text/plain");
         }
     }
 }

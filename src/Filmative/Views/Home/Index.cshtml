@@ -5,10 +5,10 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('.hello-ajax').click(function () {
+        $('.ajax-test').click(function () {
             $.ajax({
                 type: 'GET',
-                url: '@Url.Action("HelloAjax")',
+                url: '@Url.Action("TestAjax")',
                 success: function (result) {
                     $('#result1').html(result);
                 }
@@ -24,14 +24,15 @@
     <div class="col-md-2">
         <button class="btn btn-default">@Html.ActionLink("Browse Movies", "Index", "Movies")</button>
     </div>
+    <hr />
     <div class="col-md-2">
         <button class="btn btn-default">@Html.ActionLink("Checkout Scores", "Index", "Scores")</button>
     </div>
 </div>
 <hr />
 <div>
-    <h2>Basic AJAX</h2>
-    <h4 class="hello-ajax">Hello AJAX</h4>
+    <h2>AJAX Test</h2>
+    <h4 class="ajax-test">Click here to check AJAX</h4>
     <div id="result1"></div>
 </div>
   

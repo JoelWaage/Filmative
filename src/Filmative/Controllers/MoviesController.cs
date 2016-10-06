@@ -46,5 +46,10 @@ namespace Filmative.Controllers
             movieRepo.Save(movie);
             return RedirectToAction("Index");
         }
+
+        public IActionResult ScorePartial()
+        {
+            return View();
+        }
     }
 }
