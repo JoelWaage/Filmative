@@ -3,6 +3,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.hello-ajax').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("HelloAjax")',
+                success: function (result) {
+                    $('#result1').html(result);
+                }
+            });
+        });
+    });
+</script>
+
 <h1>Welcome to Filmative!</h1>
 <hr />
 
@@ -14,3 +28,10 @@
         <button class="btn btn-default">@Html.ActionLink("Checkout Scores", "Index", "Scores")</button>
     </div>
 </div>
+<hr />
+<div>
+    <h2>Basic AJAX</h2>
+    <h4 class="hello-ajax">Hello AJAX</h4>
+    <div id="result1"></div>
+</div>
+  

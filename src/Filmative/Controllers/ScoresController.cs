@@ -31,7 +31,7 @@ namespace Filmative.Controllers
         }
         public IActionResult Create()
         {
-            ViewBag.Movie = new SelectList(_db.Movies, "MovieId", "Title");
+            ViewBag.MovieId = new SelectList(_db.Movies, "MovieId", "Title");
             return View();
         }
         [HttpPost]
