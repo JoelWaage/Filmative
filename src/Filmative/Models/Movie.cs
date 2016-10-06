@@ -15,6 +15,8 @@ namespace Filmative.Models
         public int MovieId { get; set; }
         [Required]
         public string Title { get; set; }
+        public virtual ICollection<Score> Scores { get; set; }
+        
 
         public override bool Equals(System.Object otherMovie)
         {

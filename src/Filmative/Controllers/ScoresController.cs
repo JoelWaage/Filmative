@@ -27,7 +27,7 @@ namespace Filmative.Controllers
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var currentUser = await _userManager.FindByIdAsync(userId);
-            return View(_db.Scores.Where(x => x.User.Id == currentUser.Id).ToList());
+            return View(_db.Scores.Where(x => x.User.Id == currentUser.Id).Include(scores => scores.Movie).ToList());
         }
         public IActionResult Create()
         {
