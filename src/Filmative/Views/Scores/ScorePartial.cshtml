@@ -1,13 +1,14 @@
 ﻿<div id="display-score-partial">
+    <h1>@Model.Title</h1>
     <h2>Attemping to Submit a Score</h2>
-    <form action="NewScore" class="new-score">
-        <label for="selectTitle">Title: </label>
-        <input type="number" name="selectTitle" />
+    @using (Html.BeginForm("NewScore", "Scores", FormMethod.Post))
+    { 
+        <input type="number" name="selectTitle" value="@Model.MovieId" />
         <label for="newRating">Rating: </label>
         <input type="number" name="newRating" />
         <label for="newReview">Review: </label>
         <input type="text" name="newReview" />
         <button type="submit">Submit</button>
-    </form>
+    }
     <div id="submitResult"></div>
 </div>    
