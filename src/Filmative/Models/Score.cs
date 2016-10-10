@@ -14,6 +14,7 @@ namespace Filmative.Models
         public int ScoreId { get; set; }
         public virtual Movie Movie { get; set; }
         public int Rating { get; set; }
+        [StringLength(50)]
         public string Review { get; set; }
         public virtual ApplicationUser User { get; set; }
     }

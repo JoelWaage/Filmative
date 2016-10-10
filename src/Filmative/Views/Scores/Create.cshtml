@@ -5,6 +5,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("input[data-val-length-max]").each(function () {
+            var $this = $(this);
+            var data = $this.data();
+            $this.attr("maxlength", data.valLengthMax);
+        });
+    });
+</script>
+
 <h2>Add a Score: </h2>
 <hr />
 @using (Html.BeginForm("Create","Scores", FormMethod.Post))
