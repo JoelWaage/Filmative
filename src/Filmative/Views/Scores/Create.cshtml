@@ -9,8 +9,8 @@
 <hr />
 @using (Html.BeginForm("Create","Scores", FormMethod.Post))
 {
-    @Html.LabelFor(model => model.Movie)
-    @Html.EditorFor(model => model.Movie.MovieId, new { @Value= Model.Movie.MovieId })
+   
+    @Html.HiddenFor(model => model.Movie.MovieId, new { @Value= Model.Movie.MovieId })
 
     @Html.LabelFor(model => model.Rating)
     @Html.EditorFor(model => model.Rating)
