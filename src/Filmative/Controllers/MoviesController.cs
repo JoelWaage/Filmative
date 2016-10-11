@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Filmative.Models;
 using Filmative.Models.Repositories;
+using RestSharp;
+using RestSharp.Authenticators;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Filmative.Controllers
 {
@@ -50,6 +54,12 @@ namespace Filmative.Controllers
         public IActionResult ScorePartial()
         {
             return View();
+        }
+
+        public IActionResult GetMovie()
+        {
+            var madMax = Movie.GetMovie();
+            return View(madMax);
         }
     }
 }
