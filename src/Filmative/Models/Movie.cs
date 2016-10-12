@@ -41,6 +41,7 @@ namespace Filmative.Models
 
         public static Movie GetMovie()
         {
+            int id = 100;
             var client = new RestClient("https://omdbapi.com");
             var request = new RestRequest("/?t=how+green+was+my+valley&y=&plot=short&r=json", Method.GET);
             var response = new RestResponse();
@@ -48,8 +49,17 @@ namespace Filmative.Models
             {
                 response = await GetResponseContentAsync(client, request) as RestResponse;
             }).Wait();
-            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
-            var thisMovie = JsonConvert.DeserializeObject<Movie>(jsonResponse["movies"].ToString());
+
+
+            JObject jObject = JObject.Parse(response.Content);
+
+            string title = (string)jObject["Title"];
+
+            Movie thisMovie = new Movie();
+
+            thisMovie.Title = title;
+            thisMovie.MovieId = id;
+   
             return thisMovie;
         }
 
