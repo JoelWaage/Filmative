@@ -1,0 +1,7 @@
+﻿* User enters movie title, it queries the database to see if it's there, if so over to the Details page
+
+* If it isn't there, it queries the database, and returns the movie information, adding it to the database
+
+* Reviews are attached to movies in the database, all other information is queried up from the API
+
+* Step 4 Profit
