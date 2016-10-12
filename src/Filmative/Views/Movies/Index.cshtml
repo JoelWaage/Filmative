@@ -6,10 +6,11 @@
 }
 
 <div class="jumbotron">
-    <h2>Movies: </h2>
+    <h2>Here's a Buncha Movies!</h2>
     <ul>
         @foreach (var movie in Model)
         {
+            <li><img src="@Url.Content(movie.Image)" /></li>
             <li>@Html.DisplayFor(modelMovie => movie.Title) | @Html.ActionLink("Details", "Details", new { id = movie.MovieId })</li>
         }
     </ul>
