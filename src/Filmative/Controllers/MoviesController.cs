@@ -58,7 +58,8 @@ namespace Filmative.Controllers
 
         public IActionResult GetMovie()
         {
-            return View();
+            var greenValley = Movie.GetMovie();
+            return View(greenValley);
         }
     }
 }
