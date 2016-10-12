@@ -58,8 +58,7 @@ namespace Filmative.Controllers
 
         public IActionResult GetMovie()
         {
-            var madMax = Movie.GetMovie();
-            return View(madMax);
+            return View();
         }
     }
 }
