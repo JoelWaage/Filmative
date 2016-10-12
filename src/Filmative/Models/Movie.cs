@@ -65,7 +65,7 @@ namespace Filmative.Models
 
             JObject movieObject = JObject.Parse(response.Content);
 
-            thisMovie.MovieId = 50;
+        
             thisMovie.Title = (string)movieObject["Title"];
             thisMovie.Year = (string)movieObject["Year"];
             thisMovie.Rated = (string)movieObject["Rated"];
