@@ -47,14 +47,18 @@ namespace Filmative.Controllers
         [HttpPost]
         public IActionResult Create(Movie movie)
         {
-            movieRepo.Save(movie);
+            string title = movie.Title;
+            var thisMovie = Movie.GetMovie(title);
+
+            movieRepo.Save(thisMovie);
             return RedirectToAction("Index");
         }
 
         public IActionResult GetMovie()
         {
-            var greenValley = Movie.GetMovie();
-            return View(greenValley);
+            string ad = "Arizona Dream";
+            var arizonaDream = Movie.GetMovie(ad);
+            return View(arizonaDream);
         }
     }
 }

@@ -50,12 +50,12 @@ namespace Filmative.Models
             return this.MovieId.GetHashCode();
         }
 
-        public static Movie GetMovie()
+        public static Movie GetMovie(string title)
         {
             Movie thisMovie = new Movie();
 
             var client = new RestClient("https://omdbapi.com");
-            var request = new RestRequest("/?t=arizona+dream&y=&plot=short&r=json", Method.GET);
+            var request = new RestRequest("/?t=" + title + "&y=&plot=short&r=json", Method.GET);
             var response = new RestResponse();
             Task.Run(async () =>
             {
@@ -74,7 +74,8 @@ namespace Filmative.Models
             thisMovie.Genre = (string)movieObject["Genre"];
             thisMovie.Director = (string)movieObject["Director"];
             thisMovie.Writer = (string)movieObject["Writer"];
-            thisMovie.Actors = (string)movieObject["Plot"];
+            thisMovie.Actors = (string)movieObject["Actors"];
+            thisMovie.Plot = (string)movieObject["Plot"];
             thisMovie.Image = (string)movieObject["Poster"];
             thisMovie.Metascore = (string)movieObject["Metascore"];
     

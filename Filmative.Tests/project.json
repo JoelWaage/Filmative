@@ -2,13 +2,13 @@
   "version": "1.0.0-*",
   "testRunner": "xunit",
   "dependencies": {
-    "Filmative": "1.0.0-*",
     "Microsoft.AspNetCore.Mvc.ViewFeatures": "1.0.1",
     "NETStandard.Library": "1.6.0",
     "xunit": "2.1.0",
     "xunit.runner.console": "2.1.0",
     "dotnet-test-xunit": "2.2.0-preview2-build1029",
-    "Moq": "4.6.38-alpha"
+    "Moq": "4.6.38-alpha",
+    "Filmative": "1.0.0-*"
   },
 
   "frameworks": {

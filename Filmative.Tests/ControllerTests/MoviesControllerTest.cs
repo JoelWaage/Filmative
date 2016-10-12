@@ -19,9 +19,9 @@ namespace Filmative.Tests.ControllerTests
         {
             mock.Setup(m => m.Movies).Returns(new Movie[]
             {
-                new Movie {MovieId = 1, Title = "Tron" },
-                new Movie {MovieId = 2, Title = "Tron: Legacy" },
-                new Movie {MovieId = 3, Title = "Mad Max: Beyond Thunderdome" }
+                new Movie {MovieId = 1, Title = "Tron", Year = "1", Rated = "2", Released = "3", Runtime = "4", Genre = "5", Director = "6", Writer = "7", Actors = "8", Plot = "9", Image = "10", Metascore = "11" },
+                new Movie {MovieId = 2, Title = "Tron: Legacy", Year = "1", Rated = "2", Released = "3", Runtime = "4", Genre = "5", Director = "6", Writer = "7", Actors = "8", Plot = "9", Image = "10", Metascore = "11"  },
+                new Movie {MovieId = 3, Title = "Mad Max: Beyond Thunderdome", Year = "1", Rated = "2", Released = "3", Runtime = "4", Genre = "5", Director = "6", Writer = "7", Actors = "8", Plot = "9", Image = "10", Metascore = "11"  }
             }.AsQueryable());
         }
 
@@ -45,22 +45,6 @@ namespace Filmative.Tests.ControllerTests
             var result = indexView.ViewData.Model;
 
             Assert.IsType<List<Movie>>(result);
-        }
-
-        [Fact]
-        public void Mock_ConfirmEntry_Test()
-        {
-            DbSetup();
-            MoviesController controller = new MoviesController(mock.Object);
-            Movie testMovie = new Movie();
-            testMovie.Title = "Valley of the Dolls";
-            testMovie.MovieId = 1;
-
-            controller.Create(testMovie);
-            ViewResult indexView = new MoviesController().Index() as ViewResult;
-            var collection = indexView.ViewData.Model as IEnumerable<Movie>;
-
-            Assert.Contains<Movie>(testMovie, collection);
         }
     }
 }
