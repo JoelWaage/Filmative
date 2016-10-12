@@ -51,11 +51,6 @@ namespace Filmative.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult ScorePartial()
-        {
-            return View();
-        }
-
         public IActionResult GetMovie()
         {
             var greenValley = Movie.GetMovie();

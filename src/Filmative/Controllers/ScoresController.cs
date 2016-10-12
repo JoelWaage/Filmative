@@ -47,8 +47,5 @@ namespace Filmative.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        //[HttpPost]
-        //public IActionResult NewScore(int selectMovie, int newRating, string newReview)
     }
 }

@@ -15,20 +15,22 @@
     });
 </script>
 
-<h2>Add a Score: </h2>
-<hr />
-@using (Html.BeginForm("Create","Scores", FormMethod.Post))
-{
-   
-    @Html.HiddenFor(model => model.Movie.MovieId, new { @Value= Model.Movie.MovieId })
+<div class="jumbotron">
+    <h2>Add a Score: </h2>
+    <hr />
+    @using (Html.BeginForm("Create", "Scores", FormMethod.Post))
+    {
 
-    @Html.LabelFor(model => model.Rating)
-    @Html.EditorFor(model => model.Rating)
+        @Html.HiddenFor(model => model.Movie.MovieId, new { @Value = Model.Movie.MovieId })
 
-    @Html.LabelFor(model => model.Review)
-    @Html.EditorFor(model => model.Review)
+        @Html.LabelFor(model => model.Rating)
+        @Html.EditorFor(model => model.Rating)
 
-    <input type="submit" value="Create" class="btn btn-default" />
-}
+        @Html.LabelFor(model => model.Review)
+        @Html.EditorFor(model => model.Review)
 
-@Html.ActionLink("Back to Scores", "Index")
+        <input type="submit" value="Create" class="btn btn-default" />
+    }
+
+    @Html.ActionLink("Back to Scores", "Index")
+</div>

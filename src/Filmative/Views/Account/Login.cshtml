@@ -7,18 +7,20 @@
 
 @model LoginViewModel
 
-<h2>Log In: </h2>
-<hr />
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(m => m.UserName)
-    @Html.TextBoxFor(m => m.UserName)
+<div class="jumbotron">
+    <h2>Log In: </h2>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(m => m.UserName)
+        @Html.TextBoxFor(m => m.UserName)
 
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password)
 
-    <input type="submit" value="Log In" class="btn btn-default" />
-}
+        <input type="submit" value="Log In" class="btn btn-default" />
+    }
 
-<p>@Html.ActionLink("Home", "Index")</p>
-<p>@Html.ActionLink("Register an Account", "Register")</p>
+    <p>@Html.ActionLink("Home", "Index")</p>
+    <p>@Html.ActionLink("Register an Account", "Register")</p>
+</div>

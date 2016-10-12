@@ -7,18 +7,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Scores for @User.Identity.Name</h2>
+<div class="jumbotron">
+    <h2>Scores for @User.Identity.Name</h2>
 
-@if (Model.Any())
-{
-    <ul>
-        @foreach (var score in Model)
-        {
-            <li>@Html.DisplayFor(modelScore => score.Movie.Title): @Html.DisplayFor(modelScore => score.Rating)</li>
+    @if (Model.Any())
+    {
+        <ul>
+            @foreach (var score in Model)
+            {
+                <li>@Html.DisplayFor(modelScore => score.Movie.Title): @Html.DisplayFor(modelScore => score.Rating)</li>
 
-        }
-    </ul>
-}
+            }
+        </ul>
+    }
 
 
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+    <p>@Html.ActionLink("Home", "Index", "Home")</p>
+</div>

@@ -19,6 +19,17 @@ namespace Filmative.Models
         public int MovieId { get; set; }
         [Required]
         public string Title { get; set; }
+        public string Year { get; set; }
+        public string Rated { get; set; }
+        public string Released { get; set; }
+        public string Runtime { get; set; }
+        public string Genre { get; set; }
+        public string Director { get; set; }
+        public string Writer { get; set; }
+        public string Actors { get; set; }
+        public string Plot { get; set; }
+        public string Image { get; set; }
+        public string Metascore { get; set; }
         public virtual ICollection<Score> Scores { get; set; }
 
         public override bool Equals(System.Object otherMovie)
@@ -41,9 +52,10 @@ namespace Filmative.Models
 
         public static Movie GetMovie()
         {
-            int id = 100;
+            Movie thisMovie = new Movie();
+
             var client = new RestClient("https://omdbapi.com");
-            var request = new RestRequest("/?t=how+green+was+my+valley&y=&plot=short&r=json", Method.GET);
+            var request = new RestRequest("/?t=arizona+dream&y=&plot=short&r=json", Method.GET);
             var response = new RestResponse();
             Task.Run(async () =>
             {
@@ -51,15 +63,21 @@ namespace Filmative.Models
             }).Wait();
 
 
-            JObject jObject = JObject.Parse(response.Content);
+            JObject movieObject = JObject.Parse(response.Content);
 
-            string title = (string)jObject["Title"];
-
-            Movie thisMovie = new Movie();
-
-            thisMovie.Title = title;
-            thisMovie.MovieId = id;
-   
+            thisMovie.MovieId = 50;
+            thisMovie.Title = (string)movieObject["Title"];
+            thisMovie.Year = (string)movieObject["Year"];
+            thisMovie.Rated = (string)movieObject["Rated"];
+            thisMovie.Released = (string)movieObject["Released"];
+            thisMovie.Runtime = (string)movieObject["Runtime"];
+            thisMovie.Genre = (string)movieObject["Genre"];
+            thisMovie.Director = (string)movieObject["Director"];
+            thisMovie.Writer = (string)movieObject["Writer"];
+            thisMovie.Actors = (string)movieObject["Plot"];
+            thisMovie.Image = (string)movieObject["Poster"];
+            thisMovie.Metascore = (string)movieObject["Metascore"];
+    
             return thisMovie;
         }
 

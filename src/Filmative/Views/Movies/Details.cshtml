@@ -5,11 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@Html.DisplayFor(model => model.Title)</h1>
-<hr />
-<h2>Further Api Information will display here</h2>
-<hr />
-<p>@Html.ActionLink("Movie List", "Index")</p>
-<p>@Html.ActionLink("Add a Rating", "Create", "Scores", new { id = Model.MovieId })</p>
-
+<div class="jumbotron">
+    <h1>@Html.DisplayFor(model => model.Title)</h1>
+    <hr />
+    <h2>Further Api Information will display here</h2>
+    <hr />
+    <p>@Html.ActionLink("Movie List", "Index")</p>
+    <p>@Html.ActionLink("Add a Rating", "Create", "Scores", new { id = Model.MovieId })</p>
+</div>
 

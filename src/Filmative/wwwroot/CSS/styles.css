@@ -1,9 +1,14 @@
 ﻿body {
-    background-color: black;
+    background-image: url("../Images/Cell.jpg");
     color: lightsteelblue;
 }
 
 li {
     list-style-type: none;
     padding-top: 5px;
+}
+
+.jumbotron {
+    margin-top:40px;
+    background-color: antiquewhite;
 }

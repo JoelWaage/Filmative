@@ -1,12 +1,16 @@
 ﻿@model Filmative.Models.Movie
 
 @{ 
-    ViewData["Title"] = "Hm.";
+    ViewData["Title"] = "Api Display";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Test</h1>
+<div class="jumbotron">
+    <h1>Api View</h1>
 
-<ul>
-    <li>Title: @Html.DisplayFor(model => model.Title)</li>
-</ul>
+    <ul>
+        <li><img src=" @Url.Content(Model.Image)" /></li>
+        <li>Title: @Html.DisplayFor(model => model.Title)</li>
+        <li>Director: @Html.DisplayFor(model => model.Director)</li>
+    </ul>
+</div>

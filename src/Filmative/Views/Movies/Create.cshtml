@@ -5,13 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Add a Movie</h2>
-<hr />
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(model =>model.Title)
-    @Html.TextBoxFor(model => model.Title)
-    <input type="submit" value="Add Title" />
-}
+<div class="jumbotron">
+    <h2>Add a Movie</h2>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Title)
+        @Html.TextBoxFor(model => model.Title)
+        <input type="submit" value="Add Title" />
+    }
 
-<button class="btn btn-default">@Html.ActionLink("Movie List", "Index")</button>
+    <button class="btn btn-default">@Html.ActionLink("Movie List", "Index")</button>
+</div>

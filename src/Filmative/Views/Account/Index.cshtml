@@ -1,28 +1,29 @@
 ﻿@{ 
-    ViewData["Title"] = "Filmative Sign-In";
+    ViewData["Title"] = "Filmative";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @using System.Security.Claims
 
-<h2>Authentication</h2>
-<hr />
-@if (User.Identity.IsAuthenticated)
-{
-    <p>Hello @User.Identity.Name!</p>
-    <p>@Html.ActionLink("Movie List", "Index", "Movies")</p>
-    <p>@Html.ActionLink("Scores", "Index", "Scores")</p>
-    @using (Html.BeginForm("LogOff", "Account"))
+<div class="jumbotron">
+    <h2>Filmative</h2>
+    <hr />
+    @if (User.Identity.IsAuthenticated)
     {
-        <input type="submit" class="btn btn-default" value="Log Out" />
+        <p>Hello @User.Identity.Name!</p>
+        <p>@Html.ActionLink("Movie List", "Index", "Movies")</p>
+        <p>@Html.ActionLink("Scores", "Index", "Scores")</p>
+        @using (Html.BeginForm("LogOff", "Account"))
+        {
+            <input type="submit" class="btn btn-default" value="Log Out" />
 
+        }
     }
-}
-else
-{
-    <p>@Html.ActionLink("Log In", "Login")</p>
-    <p>@Html.ActionLink("Create an Account", "Register")</p>
-    <p>@Html.ActionLink("Movie List", "Index", "Movies")</p>
-}
-
+    else
+    {
+        <p>@Html.ActionLink("Log In", "Login")</p>
+        <p>@Html.ActionLink("Create an Account", "Register")</p>
+        <p>@Html.ActionLink("Movies", "Index", "Movies")</p>
+    }
+</div>
 
