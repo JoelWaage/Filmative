@@ -8,7 +8,21 @@
 <div class="jumbotron">
     <h1>@Html.DisplayFor(model => model.Title)</h1>
     <hr />
-    <h2>Further Api Information will display here</h2>
+    <div class="rows">
+        <div class="col-lg-6">
+            <img src="@Url.Content(Model.Image)" />
+        </div>
+        <div class="col-lg-6">
+            <ul>
+                <li class="year">@Html.DisplayFor(model => model.Year)</li>
+                <li class="director">Director: @Html.DisplayFor(model => model.Director)</li>
+                <li class="Writer">Written by: @Html.DisplayFor(model => model.Writer)</li>
+                <li class="Actors">Starring: @Html.DisplayFor(model => model.Actors)</li>
+                <li class="Plot">Synopsis: @Html.DisplayFor(model => model.Plot)</li>
+            </ul>    
+        </div>
+    </div>
+
     <hr />
     <p>@Html.ActionLink("Movie List", "Index")</p>
     <p>@Html.ActionLink("Add a Rating", "Create", "Scores", new { id = Model.MovieId })</p>
