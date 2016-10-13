@@ -10,8 +10,11 @@
     <ul>
             @foreach (var movie in Model)
             {
-                <li><img src="@Url.Content(movie.Image)" /></li>
-                <li>@Html.ActionLink("Details", "Details", new { id = movie.MovieId })</li>
+                <li>
+                    <a id="DetailLink" href="~/Movies/Details/@movie.MovieId">
+                    <img src="@Url.Content(movie.Image)" alt="Poster" />
+                    </a>
+                </li>
                 <li><hr /></li>
             }
     </ul>
