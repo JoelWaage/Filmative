@@ -49,9 +49,9 @@ namespace Filmative.Controllers
         {
             string title = movie.Title;
             var thisMovie = Movie.GetMovie(title);
-
             movieRepo.Save(thisMovie);
-            return RedirectToAction("Index");
+            string thisId = thisMovie.MovieId.ToString();
+            return RedirectToAction(thisId, "Movies/Details");
         }
 
         public IActionResult GetMovie()
