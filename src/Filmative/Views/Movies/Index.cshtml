@@ -5,20 +5,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="info">
-    <h2>Here's a Buncha Movies!</h2>
-    <ul>
+<div class="media-grid">
+    <div class="row">
+        <div class="clearfix">
             @foreach (var movie in Model)
             {
-                <li>
-                    <a id="DetailLink" href="~/Movies/Details/@movie.MovieId">
-                    <img src="@Url.Content(movie.Image)" alt="Poster" />
-                    </a>
-                </li>
-                <li><hr /></li>
+                <ul>
+                    <li>
+                        <div class="pull-left col-xs-3">
+                            <a id="DetailLink" href="~/Movies/Details/@movie.MovieId" class="thumbnail" height="300">
+                                <img src="@Url.Content(movie.Image)" id="poster-page" alt="Poster" />
+                            </a>
+                        </div>
+                    </li>
+                </ul>
             }
-    </ul>
-
+        </div>
+    </div>
     <p>@Html.ActionLink("Add a Title", "Create")</p>
     <p>@Html.ActionLink("Home", "Index", "Home")</p>
 </div>

@@ -1,7 +1,7 @@
 ﻿@model Filmative.Models.Score
 
 @{ 
-    ViewData["Title"] = "Score - Somethin'";
+    ViewData["Title"] = @Html.DisplayFor(model => Model.Movie.Title);
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -16,8 +16,9 @@
 </script>
 
 <div class="jumbotron">
-    <h2>Add a Score: </h2>
-    <hr />
+    <h4>Rate</h4>
+    <img src="@Url.Content(Model.Movie.Image)" class="rate-poster" width="90"/>
+    <h2>@Html.DisplayFor(model => Model.Movie.Title): </h2>
     @using (Html.BeginForm("Create", "Scores", FormMethod.Post))
     {
 
@@ -25,6 +26,8 @@
 
         @Html.LabelFor(model => model.Rating)
         @Html.EditorFor(model => model.Rating)
+
+        <br />
 
         @Html.LabelFor(model => model.Review)
         @Html.EditorFor(model => model.Review)
