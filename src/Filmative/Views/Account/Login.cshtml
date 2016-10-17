@@ -13,9 +13,12 @@
     @using (Html.BeginForm())
     {
         @Html.LabelFor(m => m.UserName)
+        <br />
         @Html.TextBoxFor(m => m.UserName)
-
+        <br />
+        <br />
         @Html.LabelFor(m => m.Password)
+        <br />
         @Html.PasswordFor(m => m.Password)
 
         <input type="submit" value="Log In" class="btn btn-default" />

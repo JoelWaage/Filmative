@@ -1,7 +1,9 @@
-﻿* User enters movie title, it queries the database to see if it's there, if so over to the Details page
+﻿*Make it so users can only review a movie once.  If the value of their review is not null then it shows the review and eventually you can replace an old review (or maybe add a rewatch option)
+
+* User enters movie title, it queries the database to see if it's there, if so over to the Details page
 
 * If it isn't there, it queries the database, and returns the movie information, adding it to the database
 
-* Reviews are attached to movies in the database, all other information is queried up from the API
+* Allow users to see others' ratings
 
-* Step 4 Profit
+* Display a random smattering of 16(?) movies on the Movie List homepage

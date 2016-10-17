@@ -11,9 +11,11 @@
     @using (Html.BeginForm())
     {
         @Html.LabelFor(model => model.Title)
+        <br />
         @Html.TextBoxFor(model => model.Title)
         <input type="submit" value="Add Title" />
     }
-
-    <button class="btn btn-default">@Html.ActionLink("Movie List", "Index")</button>
+    <br />
+    <br />
+    @Html.ActionLink("Movie List", "Index")
 </div>
