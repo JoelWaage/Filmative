@@ -30,9 +30,16 @@ namespace Filmative.Controllers
             }
         }
 
-        public ViewResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(movieRepo.Movies.ToList());
+            var movies = from m in movieRepo.Movies
+                         select m;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.Title.Contains(searchString));
+            }
+
+            return View(movies);
         }
         public IActionResult Details(int id)
         {
