@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <script type="text/javascript">
     $(document).ready(function () {
         $("input[data-val-length-max]").each(function () {
@@ -24,10 +25,18 @@
 
         @Html.HiddenFor(model => model.Movie.MovieId, new { @Value = Model.Movie.MovieId })
 
-        @Html.LabelFor(model => model.Rating)
-        <br />
-        @Html.EditorFor(model => model.Rating)
-
+        <span class="rating">
+            @for (int i = 1; i <= 5; i++)
+            {
+                var starClass = "star";
+                if (Model.Rating == 6 - i)
+                {
+                    starClass += " active";
+                }
+                <span data-value="@(6 - i)" class="@starClass"></span>
+            }
+        </span>
+        
         <br />
         <br />
 
@@ -39,4 +48,7 @@
     }
     <br />
     @Html.ActionLink("Back to Scores", "Index")
+    
+    <script src="~/js/rating.js"></script>
+
 </div>

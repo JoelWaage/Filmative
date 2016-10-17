@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Filmative.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Filmative.Models
 {
@@ -13,6 +14,7 @@ namespace Filmative.Models
         [Key]
         public int ScoreId { get; set; }
         public virtual Movie Movie { get; set; }
+        [HiddenInput]
         public int Rating { get; set; }
         [StringLength(50)]
         public string Review { get; set; }
