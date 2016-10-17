@@ -16,8 +16,8 @@
 </script>
 
 <div class="jumbotron">
-    <h4>Rate</h4>
     <img src="@Url.Content(Model.Movie.Image)" class="rate-poster" width="90"/>
+    <h5>Rate</h5>
     <h2>@Html.DisplayFor(model => Model.Movie.Title): </h2>
     @using (Html.BeginForm("Create", "Scores", FormMethod.Post))
     {
@@ -25,15 +25,18 @@
         @Html.HiddenFor(model => model.Movie.MovieId, new { @Value = Model.Movie.MovieId })
 
         @Html.LabelFor(model => model.Rating)
+        <br />
         @Html.EditorFor(model => model.Rating)
 
         <br />
+        <br />
 
         @Html.LabelFor(model => model.Review)
+        <br />
         @Html.EditorFor(model => model.Review)
 
         <input type="submit" value="Create" class="btn btn-default" />
     }
-
+    <br />
     @Html.ActionLink("Back to Scores", "Index")
 </div>
