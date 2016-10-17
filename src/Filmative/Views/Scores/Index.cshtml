@@ -15,8 +15,8 @@
         <ul>
             @foreach (var score in Model)
             {
-                <li><strong>@Html.DisplayFor(modelScore => score.Movie.Title): @Html.DisplayFor(modelScore => score.Rating) Stars</strong></li>
                 <li><a href="~/Movies/Details/@score.Movie.MovieId"><img src="@Url.Content(score.Movie.Image)" class="list-poster" width="90" /></a></li>
+                <li><strong>@Html.DisplayFor(modelScore => score.Rating) Stars</strong></li>
                 <li>@Html.DisplayFor(modelScore => score.Review)</li>
                 <li><br /></li>
              }
@@ -24,5 +24,5 @@
     }
 
 
-    <p>@Html.ActionLink("Home", "Index", "Home")</p>
+    <p>@Html.ActionLink("Movies", "Index", "Movies")</p>
 </div>

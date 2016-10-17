@@ -14,10 +14,14 @@
         </div>
         <div class="col-lg-6">
             <ul>
-                <li class="year">@Html.DisplayFor(model => model.Year)</li>
+                <li class="year"><strong>@Html.DisplayFor(model => model.Year)</strong></li>
+                <li><br /></li>
                 <li class="director">Director: @Html.DisplayFor(model => model.Director)</li>
+                <li><br /></li>
                 <li class="Writer">Written by: @Html.DisplayFor(model => model.Writer)</li>
+                <li><br /></li>
                 <li class="Actors">Starring: @Html.DisplayFor(model => model.Actors)</li>
+                <li><br /></li>
                 <li class="Plot">Synopsis: @Html.DisplayFor(model => model.Plot)</li>
             </ul>    
         </div>
