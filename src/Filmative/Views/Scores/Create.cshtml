@@ -25,6 +25,8 @@
 
         @Html.HiddenFor(model => model.Movie.MovieId, new { @Value = Model.Movie.MovieId })
 
+        @Html.HiddenFor(model => model.Rating)
+
         <span class="rating">
             @for (int i = 1; i <= 5; i++)
             {
@@ -36,7 +38,6 @@
                 <span data-value="@(6 - i)" class="@starClass"></span>
             }
         </span>
-        
         <br />
         <br />
 
