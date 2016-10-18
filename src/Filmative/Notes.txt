@@ -7,3 +7,5 @@
 * Allow users to see others' ratings
 
 * Display a random smattering of 16(?) movies on the Movie List homepage
+
+* Make Micro-Review information AJAX call(?)

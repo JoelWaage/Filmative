@@ -55,7 +55,7 @@ namespace Filmative.Models
             Movie thisMovie = new Movie();
 
             var client = new RestClient("https://omdbapi.com");
-            var request = new RestRequest("/?t=" + title + "&y=&plot=short&r%=json", Method.GET);
+            var request = new RestRequest("/?t=" + title + "&y=&plot=full&r%=json", Method.GET);
             var response = new RestResponse();
             Task.Run(async () =>
             {

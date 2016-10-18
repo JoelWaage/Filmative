@@ -19,15 +19,10 @@
  
                 @for(int i = 1; i <= score.Rating; i++)
                 {
-                   <img src="~/Images/star-full.png" class="small-star" width="12"/>
+                    <img src="~/Images/star-full.png" class="small-star" width="12"/>
                 }
 
-                @if(score.Rating < 5)
-                {
-                    @foreach()
-                    <img src="~/Images/star-empty.png" width="12" />
 
-                }
 
                <li>@Html.DisplayFor(modelScore => score.Review)</li>
                               
