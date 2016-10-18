@@ -6,6 +6,16 @@
 }
 
 <div class="media-grid">
+    @using (Html.BeginForm())
+    {   
+        <p>@Html.DropDownList("movieGenre", "All")
+        <input type="submit" value="Search Genre" />
+        <span class="titleSearch">
+            @Html.TextBox("SearchString")
+            <input type="submit" value="Search Title" />
+        </span></p>
+           
+    }
     <div class="row">
         <div class="clearfix">
             @foreach (var movie in Model)
@@ -23,12 +33,6 @@
         </div>
     </div>
 
-    @using (Html.BeginForm())
-    {   
-        <p>Search by Title: @Html.TextBox("SearchString")
-        <input type="submit" value="Search" /></p>
-    }
 
-    <p>@Html.ActionLink("Add a Title", "Create")</p>
-    <p>@Html.ActionLink("Home", "Index", "Home")</p>
+    <p>@Html.ActionLink("Add a Movie", "Create")</p>
 </div>

@@ -30,15 +30,30 @@ namespace Filmative.Controllers
             }
         }
 
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string movieGenre, string searchString)
         {
+            var GenreList = new List<string>();
+
+            var GenreQuery = from d in movieRepo.Movies
+                             orderby d.Genre
+                             select d.Genre;
+
+            GenreList.AddRange(GenreQuery.Distinct());
+            ViewBag.movieGenre = new SelectList(GenreList);
+
             var movies = from m in movieRepo.Movies
                          select m;
+
             if (!String.IsNullOrEmpty(searchString))
             {
-                movies = movies.Where(s => s.Title.Contains(searchString));
+                movies = movies.Where(s => s.Title.Contains(searchString));   
             }
 
+            if (!string.IsNullOrEmpty(movieGenre))
+            {
+                movies = movies.Where(x => x.Genre == movieGenre);
+            }
+            
             return View(movies);
         }
         public IActionResult Details(int id)

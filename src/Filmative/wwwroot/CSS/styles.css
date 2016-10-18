@@ -83,3 +83,15 @@ li {
     content: "★";
 }
 
+.titleSearch {
+    float: right;
+}
+
+#poster-page {
+    height: 200px;
+}
+
+.thumbnail {
+    background-color: antiquewhite;
+    width: 150px;
+}

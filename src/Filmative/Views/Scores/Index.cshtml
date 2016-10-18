@@ -16,8 +16,21 @@
             @foreach (var score in Model)
             {
                 <li><a href="~/Movies/Details/@score.Movie.MovieId"><img src="@Url.Content(score.Movie.Image)" class="list-poster" width="90" /></a></li>
-                <li><strong>@Html.DisplayFor(modelScore => score.Rating) Stars</strong></li>
-                <li>@Html.DisplayFor(modelScore => score.Review)</li>
+ 
+                @for(int i = 1; i <= score.Rating; i++)
+                {
+                   <img src="~/Images/star-full.png" class="small-star" width="12"/>
+                }
+
+                @if(score.Rating < 5)
+                {
+                    @foreach()
+                    <img src="~/Images/star-empty.png" width="12" />
+
+                }
+
+               <li>@Html.DisplayFor(modelScore => score.Review)</li>
+                              
                 <li><br /></li>
              }
         </ul>
