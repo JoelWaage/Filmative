@@ -25,6 +25,7 @@ namespace Filmative.Models
 
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Score> Scores { get; set; }
+        public DbSet<Follower>Follower { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Filmative;integrated security=True");
