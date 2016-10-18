@@ -95,3 +95,7 @@ li {
     background-color: antiquewhite;
     width: 150px;
 }
+
+.score-name {
+    text-align: right;
+}

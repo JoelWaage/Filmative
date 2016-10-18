@@ -7,30 +7,31 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="jumbotron">
-    <h2>@User.Identity.Name's Scores</h2>
-
-    @if (Model.Any())
-    {
-        <ul>
-            @foreach (var score in Model)
+<div class="media-grid">
+    <h2 class="score-name">@User.Identity.Name's Scores</h2>
+    <hr />
+    <div class="rows">
+        <div class="clearfix">
+            @if (Model.Any())
             {
-                <li><a href="~/Movies/Details/@score.Movie.MovieId"><img src="@Url.Content(score.Movie.Image)" class="list-poster" width="90" /></a></li>
- 
-                @for(int i = 1; i <= score.Rating; i++)
-                {
-                    <img src="~/Images/star-full.png" class="small-star" width="12"/>
-                }
+                <ul>
+                    @foreach (var score in Model)
+                    {
+                        <div class="pull-left col-xs-2">
+                            <li><a href="~/Movies/Details/@score.Movie.MovieId"><img src="@Url.Content(score.Movie.Image)" class="list-poster" width="90" /></a></li>
 
+                            @for (int i = 1; i <= score.Rating; i++)
+                            {
+                                <img src="~/Images/star-full.png" class="small-star" width="12" />
+                            }
+                            <li>@Html.DisplayFor(modelScore => score.Review)</li>
 
-
-               <li>@Html.DisplayFor(modelScore => score.Review)</li>
-                              
-                <li><br /></li>
-             }
-        </ul>
-    }
-
-
+                            <li><br /></li>
+                        </div>
+                    }
+                </ul>
+            }
+        </div>
+    </div>
     <p>@Html.ActionLink("Movies", "Index", "Movies")</p>
 </div>
